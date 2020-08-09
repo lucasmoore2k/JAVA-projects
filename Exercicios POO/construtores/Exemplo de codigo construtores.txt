@@ -1,0 +1,90 @@
+package app;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+import entities.Product;
+
+public class Produto {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc = new Scanner(System.in);
+		Locale.setDefault(Locale.US);
+		
+		
+		System.out.println("Enter product data:");
+		
+		System.out.println("Name:");//*********************Nesse caso eu não passo o parametro antes e sim declaro como variaveis independentes
+		String name=sc.nextLine();
+		System.out.println("Price:");
+		double price=sc.nextDouble();
+		
+		System.out.println("Quantity in stock: ");
+		int quantity=sc.nextInt();
+		
+		System.out.println("Product Data: ");
+		
+		System.out.println("Add quantity of products to stock");
+		quantity = sc.nextInt();
+	
+		
+		Product prod = new Product(name,price,quantity);// ************** invocando construtor 
+		
+		System.out.println();
+		System.out.println("Updated Data:"+prod);
+		System.out.println();
+		System.out.println("Remove quantity of products to stock");
+		quantity = sc.nextInt();
+		prod.removeProducts(quantity);
+		System.out.println();
+		System.out.println("Updated Data:"+prod);
+		sc.close();
+		
+		
+
+}
+
+
+}
+
+
+
+
+package entities;
+
+public class Product {
+
+
+
+	public String name;
+	public double price;
+	public int quantity;
+	
+	
+	public Product(String name,double price,int quantity) {
+		this.name=name;
+		this.price=price;
+		this.quantity=quantity;//*****************O construtor vai antes dos metodos
+	}
+	
+
+        public double totalValueInStock() {
+		return price*quantity;
+	}
+	
+	public void addProducts(int quantity) {
+		this.quantity += quantity;
+	}
+     
+	public void removeProducts(int quantity) {
+		this.quantity -=quantity;
+	}
+
+	public String toString() {
+		return name+" $ "+price+", "+quantity+" units, Total: "+totalValueInStock();
+	}
+	
+	
+}

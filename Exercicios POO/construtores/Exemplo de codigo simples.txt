@@ -1,0 +1,21 @@
+Construtor SET = altera valor e THIS
+
+Construtor GET = acessa e RETURN
+
+
+
+prod.setName("Computer");//Altera o metodo
+		
+		System.out.println("Update nome "+ prod.getName());//
+
+Acessa o metodo
+
+SINTAXE*****
+
+public void setName(String name) {
+		this.name=name;
+	}
+	
+	public String getName() {
+		return name;
+	}
